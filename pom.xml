@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.kikop</groupId>
+    <artifactId>myspring-ai-demo</artifactId>
+    <packaging>pom</packaging>
+    <version>0.0.1-SNAPSHOT</version>
+    <modules>
+        <!-- 父pom:自定义-->
+        <module>xxx-spring-boot-starter</module>
+        <!-- 父pom:根pom-->
+        <module>mydeepseek-demo</module>
+        <!-- 父pom:根pom-->
+        <module>mysftpdemo2</module>
+        <!-- 父pom:springboot-->
+        <module>myjsessionid-demo</module>
+        <!-- 父pom:springboot-->
+        <module>mystarter-demo</module>
+        <!-- 父pom:springboot-->
+        <module>myflowable-demo</module>
+        <!-- 父pom:springboot-->
+        <module>myes7-demo</module>
+    </modules>
+    <name>myspring-ai-demo</name>
+    <description>Spring AI , getting started example, using Open AI</description>
+
+    <properties>
+        <java.version>17</java.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <!--        <springboot.version>3.4.5</springboot.version>-->
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>myjdk-17</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <java.version>17</java.version>
+                <maven.compiler.source>17</maven.compiler.source>
+                <maven.compiler.target>17</maven.compiler.target>
+                <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+                <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+            </properties>
+        </profile>
+    </profiles>
+
+    <!--Spring仓库-->
+    <repositories>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+
+        <repository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/snapshot</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </repository>
+    </repositories>
+
+    <!--    aliyun-public-->
+    <!--    <repositories>-->
+    <!-- <repository>-->
+    <!--     <id>aliyun-public</id>-->
+    <!--     <name>Aliyun Public Repository</name>-->
+    <!--     <url>https://maven.aliyun.com/repository/public</url>-->
+    <!--     <releases>-->
+    <!--         <enabled>true</enabled>-->
+    <!--     </releases>-->
+    <!--     <snapshots>-->
+    <!--         <enabled>true</enabled> &lt;!&ndash; 按需开启快照版本支持 &ndash;&gt;-->
+    <!--     </snapshots>-->
+    <!-- </repository>-->
+    <!--    </repositories>-->
+
+</project>
