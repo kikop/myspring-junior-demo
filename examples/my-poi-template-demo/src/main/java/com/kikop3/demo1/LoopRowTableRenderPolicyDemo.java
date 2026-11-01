@@ -46,6 +46,6 @@ public class LoopRowTableRenderPolicyDemo {
                 // 实体类要有字段,itemWrap.items
                 .bind("myUserInfoList", hackLoopSameLineTableRenderPolicy).build();
         XWPFTemplate template = XWPFTemplate.compile(tpl.getInputStream(), config).render(itemWrap);
-        template.writeToFile("dest_mypoitl13_looprowtable.docx");
+        template.writeToFile("./result/dest_mypoitl13_looprowtable.docx");
     }
 }
