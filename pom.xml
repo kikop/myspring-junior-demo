@@ -25,7 +25,7 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
 
-        <!-- 真正要发布的是它的子模块（child modules） -->
+        <!-- 真正要发布的是它的子模块（child modules）1 -->
         <maven.deploy.skip>true</maven.deploy.skip>
 
         <spring-boot-dependencies.version>3.4.5</spring-boot-dependencies.version>
