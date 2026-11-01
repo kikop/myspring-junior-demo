@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+
+    <groupId>com.kikop3</groupId>
+    <artifactId>my-examples-parent</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+
+    <name>My Examples Parent</name>
+    <description>My Examples Parent</description>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Christian Tzolov</name>
+        </developer>
+    </developers>
+
+    <packaging>pom</packaging>
+
+    <properties>
+        <!-- 跳过 mvn deploy 阶段，不把 jar 推到远程 Maven 仓库 -->
+        <maven.deploy.skip>true</maven.deploy.skip>
+    </properties>
+
+    <modules>
+        <module>my-first-sprintboot-demo</module>
+        <!-- 独立:springboot based v3.4.5-->
+        <module>mywelcomestarter-demo</module>
+
+        <!-- 依赖根pom-->
+        <module>mydeepseek-demo</module>
+
+        <!-- 绝对独立-->
+        <module>mysftpdemo</module>
+        <!-- 独立:springbootbased v2.6.12-->
+        <module>myjsessionid-demo</module>
+        <!-- 独立:springbootbased v2.6.12-->
+        <module>myflowable-demo</module>
+        <!-- 独立:springbootbased v2.6.12-->
+        <module>myes7-demo</module>
+
+
+
+        <!-- 独立:springboot based v3.4.5-->
+        <module>myjdkclazz-demo</module>
+
+    </modules>
+
+
+
+</project>

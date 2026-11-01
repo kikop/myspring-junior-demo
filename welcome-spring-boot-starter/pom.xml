@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.xxxkikop</groupId>
+    <artifactId>welcome-spring-boot-starter</artifactId>
+    <version>0.0.3-SNAPSHOT</version>
+    <name>welcom-spring-boot-starter</name>
+    <description>自定义spring-boot-starter,springboot版本v3.0.0</description>
+
+    <packaging>jar</packaging>
+
+    <url/>
+    <licenses>
+        <license/>
+    </licenses>
+    <developers>
+        <developer/>
+    </developers>
+    <scm>
+        <connection/>
+        <developerConnection/>
+        <tag/>
+        <url/>
+    </scm>
+    <properties>
+
+        <java.version>17</java.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <spring-boot-dependencies.version>3.0.0</spring-boot-dependencies.version>
+    </properties>
+
+    <dependencies>
+
+        <!-- 1.引入自动配置两件套-->
+        <!-- compile:打包时会把 lombok.jar 打进最终 jar（浪费空间）-->
+        <!-- provided:编译时需要，但不打包进最终产物-->
+
+        <!-- 1.1.自动配置核心 -->
+        <!-- 1.Configuration、2.EnableConfigurationProperties-->
+        <!-- 运行时必须存在,所以要compile-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+            <!-- compile:编译、测试、运行、传递，默认就是-->
+            <scope>compile</scope>
+        </dependency>
+
+
+        <!-- 1.2.配置属性提示-->
+        <!-- 1.IDEA支持和编译时生成元数据-->
+        <!-- 2.如当配置此jar相关配置属性在 application.yml,你可以用ctlr+鼠标左键点击属性名，IDE会跳转到你配置此属性的类中-->
+        <!-- 3.编译时生成 spring-configuration-metadata.json-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <!-- true:防止传递依赖污染使用者项目-->
+            <optional>true</optional>
+        </dependency>
+
+
+        <!-- 2.lombok-->
+        <!-- Spring Boot 的 spring-boot-dependencies 已经管理了 Lombok 版本-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <!-- proviced:编译、测试,不会打进 jar，也不会传递依赖-->
+            <!-- eg:servlet-api-->
+            <scope>provided</scope>
+        </dependency>
+
+
+        <!-- 3.如果 starter 需要 web 能力 -->
+        <!-- optional:true:我用它，但我不强制你也用它-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- 4.不需要引入spring-boot-starter-->
+        <!-- nessary2_独立成体系,更完整-->
+        <!--  注意:spring-boot-starter 不在 spring-boot-dependencies-->
+        <!-- 会把 logging、spring-core、context 等全部带进来,容易造成 依赖冲突 / 版本覆盖 -->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.boot</groupId>-->
+        <!--            <artifactId>spring-boot-starter</artifactId>-->
+        <!--        </dependency>-->
+
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- 1.spring-boot-dependencies-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot-dependencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+
+</project>

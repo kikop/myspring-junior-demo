@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.flowable.org/processdef">
+  <process id="myleave" name="请假流程测试" isExecutable="true">
+    <startEvent id="mystartEvent"/>
+    <sequenceFlow id="sid-d709f084-b1b3-4e1a-a212-254fe60315f4" sourceRef="mystartEvent" targetRef="applyperson"/>
+
+    <userTask id="applyperson" name="申请人" flowable:assignee="${userTask}">
+      <extensionElements>
+        <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="sid-a1efd512-064a-4d79-ae8f-a8e09b0f0b58" sourceRef="applyperson" targetRef="manager"/>
+
+    <userTask id="manager" name="经理">
+      <extensionElements>
+        <!--  这是流程监听器所指定的审批人，class要指定监听      -->
+        <flowable:taskListener event="create" class="com.kikop.listener.ManagerTaskListener"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="sid-22aeb324-11f4-4692-bb26-625c4babed19" sourceRef="manager" targetRef="applyperson" name="经理驳回">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${result == "驳回"}]]></conditionExpression>
+    </sequenceFlow>
+
+    <sequenceFlow id="sid-ee68d4f4-b1db-4f42-a74b-51833e19b39b" sourceRef="manager" targetRef="boss">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${result == "同意"}]]></conditionExpression>
+    </sequenceFlow>
+
+    <userTask id="boss" name="老板">
+      <extensionElements>
+        <!--  这是流程监听器所指定的审批人，class要指定监听      -->
+        <flowable:taskListener event="create" class="com.kikop.listener.BossTaskListener"/>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="sid-ee1584c2-08d4-49e6-b19f-bc81a5085f80" sourceRef="boss" targetRef="myendEvent">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${result == "同意"}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="sid-e7553363-46cf-47e7-b03c-4b8a01f7d34d" sourceRef="boss" targetRef="applyperson" name="老板驳回">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${result == "驳回"}]]></conditionExpression>
+    </sequenceFlow>
+    <endEvent id="myendEvent"/>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_myleave">
+    <bpmndi:BPMNPlane bpmnElement="myleave" id="BPMNPlane_myleave">
+      <bpmndi:BPMNShape id="shape-e7b675f7-72e1-4ae0-9bbf-90c82e5eacdc" bpmnElement="mystartEvent">
+        <omgdc:Bounds x="-543.0" y="-269.0" width="30.0" height="30.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="shape-c6d9907b-3beb-42e6-b109-e9d942db755c" bpmnElement="applyperson">
+        <omgdc:Bounds x="-474.75" y="-294.0" width="100.0" height="80.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="edge-7be8f21e-37af-41e4-894a-bf5b13c7d09b" bpmnElement="sid-d709f084-b1b3-4e1a-a212-254fe60315f4">
+        <omgdi:waypoint x="-512.99994" y="-254.0"/>
+        <omgdi:waypoint x="-474.75" y="-254.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="shape-b2fe4779-f886-4dc5-a50b-28c862a50093" bpmnElement="myendEvent">
+        <omgdc:Bounds x="243.75" y="-274.0" width="30.0" height="30.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="sid-59f7df75-f20b-4a60-a5b3-2f8e3a0fa3fe" bpmnElement="boss">
+        <omgdc:Bounds x="20.25" y="-299.0" width="100.0" height="80.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="edge-1b87ab5d-0250-4bf2-ae42-c77134e6da3c" bpmnElement="sid-ee1584c2-08d4-49e6-b19f-bc81a5085f80">
+        <omgdi:waypoint x="120.25" y="-259.0"/>
+        <omgdi:waypoint x="243.75" y="-259.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="sid-0d2be23f-8030-4c52-be26-b94cd4b91fb8" bpmnElement="manager">
+        <omgdc:Bounds x="-216.9639" y="-294.0" width="100.0" height="80.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="edge-58ef49f0-1d37-40cc-98de-53338619a5df" bpmnElement="sid-a1efd512-064a-4d79-ae8f-a8e09b0f0b58">
+        <omgdi:waypoint x="-374.74997" y="-254.0"/>
+        <omgdi:waypoint x="-216.96391" y="-254.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge-7688b9e8-176d-4985-9c2d-090c6a44e1d7" bpmnElement="sid-ee68d4f4-b1db-4f42-a74b-51833e19b39b">
+        <omgdi:waypoint x="-111.9639" y="-254.0"/>
+        <omgdi:waypoint x="20.25" y="-259.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge-212989e8-6248-4072-a974-733076c6bea8" bpmnElement="sid-22aeb324-11f4-4692-bb26-625c4babed19">
+        <omgdi:waypoint x="-166.9639" y="-294.00003"/>
+        <omgdi:waypoint x="-166.9639" y="-358.99997"/>
+        <omgdi:waypoint x="-381.55347" y="-359.0"/>
+        <omgdi:waypoint x="-424.75" y="-359.0"/>
+        <omgdi:waypoint x="-424.75" y="-351.5"/>
+        <omgdi:waypoint x="-424.75003" y="-294.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge-bc7a3c6a-08db-4aa1-b274-506e7daca1d0" bpmnElement="sid-e7553363-46cf-47e7-b03c-4b8a01f7d34d">
+        <omgdi:waypoint x="70.25" y="-219.00002"/>
+        <omgdi:waypoint x="70.25" y="-171.5"/>
+        <omgdi:waypoint x="-424.75" y="-171.5"/>
+        <omgdi:waypoint x="-424.75" y="-214.0"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

@@ -1,0 +1,6 @@
+spring:
+  ai:
+    openai:
+      api-key: sk-96cc0265b2fa4e7dae3c7de34dfb3d4c  # 替换为你的API密钥
+      base-url: https://api.deepseek.com  # 官方URL或代理地址‌:ml-citation{ref="3,5" data="citationList"}
+      chat.options.model: deepseek-chat  # 指定模型名称，如gpt-3.5-turbo、gpt-4o等‌:ml-citation{ref="7,13" data="citationList"}
