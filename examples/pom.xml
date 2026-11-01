@@ -54,6 +54,8 @@
         <!-- 独立:springboot based v3.4.5-->
         <module>myjdkclazz-demo</module>
 
+        <module>my-poi-template-demo</module>
+
     </modules>
 
 
