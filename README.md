@@ -1,1 +1,1 @@
-#myspring-ai-demo
+#myspring-junior-demo

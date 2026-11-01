@@ -3,35 +3,33 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.kikop</groupId>
-    <artifactId>myspring-ai-demo</artifactId>
+    <artifactId>myspring-junior-demo</artifactId>
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
+
     <modules>
-        <!-- 父pom:自定义-->
-        <module>xxx-spring-boot-starter</module>
-        <!-- 父pom:根pom-->
-        <module>mydeepseek-demo</module>
-        <!-- 父pom:根pom-->
-        <module>mysftpdemo2</module>
-        <!-- 父pom:springboot-->
-        <module>myjsessionid-demo</module>
-        <!-- 父pom:springboot-->
-        <module>mystarter-demo</module>
-        <!-- 父pom:springboot-->
-        <module>myflowable-demo</module>
-        <!-- 父pom:springboot-->
-        <module>myes7-demo</module>
+        <!-- 独立项目 based v3.0.0 -->
+        <module>welcome-spring-boot-starter</module>
+        <module>examples</module>
     </modules>
-    <name>myspring-ai-demo</name>
-    <description>Spring AI , getting started example, using Open AI</description>
+
+    <name>myspring-junior-demo</name>
+    <description>myspring-junior-demo</description>
 
     <properties>
-        <java.version>17</java.version>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <!--        <springboot.version>3.4.5</springboot.version>-->
+
+        <java.version>17</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+
+        <!-- 真正要发布的是它的子模块（child modules） -->
+        <maven.deploy.skip>true</maven.deploy.skip>
+
+        <spring-boot-dependencies.version>3.4.5</spring-boot-dependencies.version>
+
     </properties>
 
     <profiles>
@@ -49,41 +47,5 @@
             </properties>
         </profile>
     </profiles>
-
-    <!--Spring仓库-->
-    <repositories>
-        <repository>
-            <id>spring-milestones</id>
-            <name>Spring Milestones</name>
-            <url>https://repo.spring.io/milestone</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-
-        <repository>
-            <id>spring-snapshots</id>
-            <name>Spring Snapshots</name>
-            <url>https://repo.spring.io/snapshot</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-        </repository>
-    </repositories>
-
-    <!--    aliyun-public-->
-    <!--    <repositories>-->
-    <!-- <repository>-->
-    <!--     <id>aliyun-public</id>-->
-    <!--     <name>Aliyun Public Repository</name>-->
-    <!--     <url>https://maven.aliyun.com/repository/public</url>-->
-    <!--     <releases>-->
-    <!--         <enabled>true</enabled>-->
-    <!--     </releases>-->
-    <!--     <snapshots>-->
-    <!--         <enabled>true</enabled> &lt;!&ndash; 按需开启快照版本支持 &ndash;&gt;-->
-    <!--     </snapshots>-->
-    <!-- </repository>-->
-    <!--    </repositories>-->
 
 </project>
