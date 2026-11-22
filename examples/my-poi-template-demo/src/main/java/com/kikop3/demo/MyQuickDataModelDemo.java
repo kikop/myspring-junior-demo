@@ -2,6 +2,7 @@ package com.kikop3.demo;
 
 import com.deepoove.poi.XWPFTemplate;
 import com.kikop3.demo.model.Author;
+import com.kikop3.demo.model.MyDataModel;
 
 import java.io.File;
 import java.io.FileOutputStream;

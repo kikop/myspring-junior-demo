@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * feature:tableRenderData
+ * feature:将Markdown渲染为word文档
  */
 public class MyMarkdownForDocxDemo {
 

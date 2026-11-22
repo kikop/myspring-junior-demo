@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * feature:pictureRenderData
+ * feature:图片
  */
 public class MyPictureRenderDataDemo {
 

@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * feature:tableRenderData
+ * feature:模板包含子模板，子模板再包含子模板
  */
 public class MyDocxRenderDataDemo {
 

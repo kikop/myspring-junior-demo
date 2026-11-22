@@ -1,6 +1,5 @@
-package com.kikop3.demo;
+package com.kikop3.demo.model;
 
-import com.kikop3.demo.model.Author;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

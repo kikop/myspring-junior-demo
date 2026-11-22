@@ -1,6 +1,5 @@
-package com.kikop3.mycontroller;
+package com.kikop3.mycomponent;
 
-import com.aspose.words.Document;
 import com.aspose.words.License;
 import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * feature:基本模板实现表格行循环功能
+ * feature:循环复制渲染表格的某一行
  */
 public class MyLoopRowTableRenderPolicyDemo {
 
