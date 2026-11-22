@@ -1,4 +1,4 @@
-package com.kikop3.demo1.model;
+package com.kikop3.demo.model;
 
 import lombok.Data;
 

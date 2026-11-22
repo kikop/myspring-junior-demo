@@ -23,6 +23,15 @@
         <maven.deploy.skip>true</maven.deploy.skip>
     </properties>
 
+    <repositories>
+        <repository>
+            <id>AsposeJavaAPI</id>
+            <name>Aspose Java API</name>
+            <url>https://releases.aspose.com/java/repo/</url>
+        </repository>
+    </repositories>
+
+
     <dependencies>
 
         <!-- 1.poi-tl -->
@@ -39,12 +48,51 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-expression</artifactId>
+            <version>6.2.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.deepoove</groupId>
+            <artifactId>poi-tl-plugin-markdown</artifactId>
+            <version>1.0.3</version>
+        </dependency>
 
         <!-- 3.lombok-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
+        </dependency>
+
+        <!--        JDK 17 用 jdk17；JDK 8 用 jdk8；JDK 11 用 jdk11。-->
+        <!--        则阿里云会把 com.aspose:aspose-words 拦截掉，报：-->
+        <dependency>
+            <groupId>com.aspose</groupId>
+            <artifactId>aspose-words</artifactId>
+            <version>25.1</version>
+            <classifier>jdk17</classifier>
+        </dependency>
+
+
+        <!--        poi-tl使用slf4j作为日志门面 -->
+        <!--        版本对应关系:-->
+        <!--        poi-tl v1.10.6内置slf4j-api v2.0.17-->
+        <!--        logback 1.2.x（只认 SLF4J 1.7）-->
+        <!--        springboot版本自动寻找logback 1.5.18(slf4j-api v2.0.17)-->
+
+        <!--        logback 删掉 version，让 Spring Boot 管 v1.5.18-->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <!--            <version>1.2.3</version>-->
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <!--            <version>1.2.3</version>-->
         </dependency>
 
     </dependencies>
@@ -55,6 +103,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <includeSystemScope>true</includeSystemScope>
+                </configuration>
             </plugin>
         </plugins>
     </build>

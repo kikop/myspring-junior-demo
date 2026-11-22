@@ -36,7 +36,6 @@
         <module>my-first-sprintboot-demo</module>
         <!-- 独立:springboot based v3.4.5-->
         <module>mywelcomestarter-demo</module>
-
         <!-- 依赖根pom-->
         <module>mydeepseek-demo</module>
 
@@ -48,9 +47,6 @@
         <module>myflowable-demo</module>
         <!-- 独立:springbootbased v2.6.12-->
         <module>myes7-demo</module>
-
-
-
         <!-- 独立:springboot based v3.4.5-->
         <module>myjdkclazz-demo</module>
 

@@ -34,8 +34,30 @@
 
     <profiles>
         <profile>
+            <id>myjdk-8</id>
+            <activation>
+                <jdk>1.8</jdk>
+            </activation>
+            <properties>
+                <java.version>8</java.version>
+                <maven.compiler.source>8</maven.compiler.source>
+                <maven.compiler.target>8</maven.compiler.target>
+                <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+                <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+            </properties>
+<!--            <dependencies>-->
+<!--                <dependency>-->
+<!--                    <groupId>com.aspose</groupId>-->
+<!--                    <artifactId>aspose-words</artifactId>-->
+<!--                    <version>25.1</version>-->
+<!--                    <classifier>jdk8</classifier>-->
+<!--                </dependency>-->
+<!--            </dependencies>-->
+        </profile>
+        <profile>
             <id>myjdk-17</id>
             <activation>
+                <jdk>17</jdk>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
@@ -45,7 +67,16 @@
                 <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
                 <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
             </properties>
+<!--            <dependencies>-->
+<!--                <dependency>-->
+<!--                    <groupId>com.aspose</groupId>-->
+<!--                    <artifactId>aspose-words</artifactId>-->
+<!--                    <version>25.1</version>-->
+<!--                    <classifier>jdk17</classifier>-->
+<!--                </dependency>-->
+<!--            </dependencies>-->
         </profile>
+
     </profiles>
 
 </project>
