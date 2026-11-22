@@ -24,9 +24,9 @@ public class MyQuickDataModelDemo {
         // 1.输出定义
         //  默认当前工作目录相对路径
         //  或者绝对路径 D:/xxx/template/myquickdemo.docx
-        String srcClassPath_same = "template/myquickdatamodeldemo.docx";
+        String srcClassPath_same = "mytemplate/myquickdatamodeldemo.docx";
         //  默认当前工作目录相对路径
-        String destPath = "result/dest_myquickdatamodeldemo.docx";
+        String destPath = "myresult/dest_myquickdatamodeldemo.docx";
 
         File file = new File(srcClassPath_same);
         if (!file.exists()) {
@@ -37,9 +37,9 @@ public class MyQuickDataModelDemo {
         Author author = new Author("tom");
         MyDataModel myDataModel = new MyDataModel("kikop", "2026-11-08", author);
 
-        //        compile 编译模板
-        //        render 渲染数据
-        //        write 输出到流
+        // compile 编译模板
+        // render 渲染数据
+        // write 输出到流
         XWPFTemplate template = XWPFTemplate.compile(srcClassPath_same).render(myDataModel);
 
         template.writeAndClose(new FileOutputStream(destPath));
@@ -55,9 +55,9 @@ public class MyQuickDataModelDemo {
         // 1.输出定义
         //  默认当前工作目录相对路径
         //  或者绝对路径 D:/xxx/template/myquickdemo.docx
-        String srcClassPath_same = "template/myquickdatamodeldemo.docx";
+        String srcClassPath_same = "mytemplate/myquickdatamodeldemo.docx";
         //  默认当前工作目录相对路径
-        String destPath = "result/dest_myquickdatamodeldemo.docx";
+        String destPath = "myresult/dest_myquickdatamodeldemo.docx";
 
         File file = new File(srcClassPath_same);
         if (!file.exists()) {
@@ -68,12 +68,12 @@ public class MyQuickDataModelDemo {
         Author author = new Author("tom");
         MyDataModel myDataModel = new MyDataModel("kikop2333", "2026-11-08", author);
 
-        //        compile 编译模板
-        //        render 渲染数据
-        //        write 输出到流
+        // compile 编译模板
+        // render 渲染数据
+        // write 输出到流
         XWPFTemplate template = XWPFTemplate.compile(srcClassPath_same).render(myDataModel);
 
-//        template.writeAndClose(new FileOutputStream(destPath));
+// template.writeAndClose(new FileOutputStream(destPath));
         return template;
     }
 }

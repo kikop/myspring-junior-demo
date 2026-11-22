@@ -22,10 +22,10 @@ public class RegisterAsposeLicense {
             License license = new License();
             license.setLicense(is);
 
-//            Document doc = new Document();
-//            doc.getFirstSection().getBody().getFirstParagraph().getRuns().add(new com.aspose.words.Run(doc, "Test"));
-//            doc.save("testinitAspose.pdf");
-//            log.info("OK - 无水印");
+//     Document doc = new Document();
+//     doc.getFirstSection().getBody().getFirstParagraph().getRuns().add(new com.aspose.words.Run(doc, "Test"));
+//     doc.save("testinitAspose.pdf");
+//     log.info("OK - 无水印");
         }
     }
 

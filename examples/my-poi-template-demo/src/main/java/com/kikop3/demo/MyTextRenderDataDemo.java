@@ -26,9 +26,9 @@ public class MyTextRenderDataDemo {
         // 1.输出定义
         //  默认当前工作目录相对路径
         //  或者绝对路径 D:/xxx/template/myquickdemo.docx
-        String srcClassPath_same = "template/mytextrenderdatademo.docx";
+        String srcClassPath_same = "mytemplate/mytextrenderdatademo.docx";
         //  默认当前工作目录相对路径
-        String destPath = "result/dest_mytextrenderdatademo.docx";
+        String destPath = "myresult/dest_mytextrenderdatademo.docx";
 
         File file = new File(srcClassPath_same);
         if (!file.exists()) {
@@ -46,9 +46,9 @@ public class MyTextRenderDataDemo {
         data.put("anchor", Texts.of("anchortxt\nabcd").anchor("appendix1").create());
 
 
-        //        compile 编译模板
-        //        render 渲染数据
-        //        write 输出到流
+        // compile 编译模板
+        // render 渲染数据
+        // write 输出到流
         XWPFTemplate template = XWPFTemplate.compile(srcClassPath_same).render(data);
 
         template.writeAndClose(new FileOutputStream(destPath));

@@ -30,10 +30,10 @@ public class MySpringExpLangDemo {
         // 1.输出定义
         //  默认当前工作目录相对路径
         //  或者绝对路径 D:/xxx/template/myquickdemo.docx
-        String srcClassPath_same = "template/myspringeldatademo.docx";
+        String srcClassPath_same = "mytemplate/myspringeldatademo.docx";
 
         //  默认当前工作目录相对路径
-        String destPath = "result/dest_myspringeldatademo.docx";
+        String destPath = "myresult/dest_myspringeldatademo.docx";
 
         File file = new File(srcClassPath_same);
         if (!file.exists()) {
@@ -53,16 +53,14 @@ public class MySpringExpLangDemo {
 
             put("mydesc", "");
             put("mysummary", "Find A Pet");
-//            put("myproduces", List.of("application/xml", "application2/xml", "application3/xml"));
-//            put("mysubdata", subData);
             put("myproduces", subData);
         }};
-        ConfigureBuilder configureBuilder = Configure.builder();
-        configureBuilder.useSpringEL();
 
         // compile 编译模板
         // render 渲染数据
         // write 输出到流
+        ConfigureBuilder configureBuilder = Configure.builder();
+        configureBuilder.useSpringEL();
         XWPFTemplate template = XWPFTemplate.compile(srcClassPath_same, configureBuilder.build()).render(data);
 
         template.writeAndClose(new FileOutputStream(destPath));

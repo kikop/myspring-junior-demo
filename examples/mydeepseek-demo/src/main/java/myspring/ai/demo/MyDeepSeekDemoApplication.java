@@ -27,7 +27,7 @@ public class MyDeepSeekDemoApplication implements CommandLineRunner {
     }
 
     public void testAll(){
-//        deepSeekByChatClientService.runByChatClient();
+// deepSeekByChatClientService.runByChatClient();
 
     }
 

@@ -28,10 +28,10 @@ public class MyDocxRenderDataDemo {
         // 1.输出定义
         //  默认当前工作目录相对路径
         //  或者绝对路径 D:/xxx/template/myquickdemo.docx
-        String srcClassPath_same = "template/mydocxrenderdatademo.docx";
-        String srcClassPath_same2 = "template/mysub.docx";
+        String srcClassPath_same = "mytemplate/mydocxrenderdatademo.docx";
+        String srcClassPath_same2 = "mytemplate/mysub.docx";
         //  默认当前工作目录相对路径
-        String destPath = "result/dest_mydocxrenderdatademo.docx";
+        String destPath = "myresult/dest_mydocxrenderdatademo.docx";
 
         File file = new File(srcClassPath_same);
         if (!file.exists()) {
@@ -52,17 +52,17 @@ public class MyDocxRenderDataDemo {
 
         Map<String, Object> data = new HashMap<String, Object>() {{
             put("title", Texts.of("kikop").create());
-//            put("mylist", Numberings.create("Plug-in grammar",
-//                    "Supports word text, pictures, table...",
-//                    "Not just templates"));
+//     put("mylist", Numberings.create("Plug-in grammar",
+//             "Supports word text, pictures, table...",
+//             "Not just templates"));
             //  模版中设定每行的字段,注意路径
-            put("nested", Includes.ofLocal("template/mysub.docx").setRenderModel(subData).create());
+            put("nested", Includes.ofLocal("mytemplate/mysub.docx").setRenderModel(subData).create());
         }};
 
 
-        //        compile 编译模板
-        //        render 渲染数据
-        //        write 输出到流
+        // compile 编译模板
+        // render 渲染数据
+        // write 输出到流
         XWPFTemplate template = XWPFTemplate.compile(srcClassPath_same).render(data);
 
         template.writeAndClose(new FileOutputStream(destPath));

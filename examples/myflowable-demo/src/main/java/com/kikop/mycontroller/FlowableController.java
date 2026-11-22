@@ -162,7 +162,7 @@ public class FlowableController {
         }
         //通过审核
         HashMap<String, Object> map = new HashMap<>();
-        map.put("result", "同意");
+        map.put("myresult", "同意");
         taskService.complete(taskId, map);
         return "任务ID：" + taskId + "---批准!";
     }
@@ -179,7 +179,7 @@ public class FlowableController {
             throw new RuntimeException("流程不存在");
         }
         HashMap<String, Object> map = new HashMap<>();
-        map.put("result", "驳回");
+        map.put("myresult", "驳回");
         taskService.complete(taskId, map);
         return "任务ID：" + taskId + "---驳回!";
     }

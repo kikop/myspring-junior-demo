@@ -27,9 +27,9 @@ public class MyPictureRenderDataDemo {
         // 1.输出定义
         //  默认当前工作目录相对路径
         //  或者绝对路径 D:/xxx/template/myquickdemo.docx
-        String srcClassPath_same = "template/mypicturerenderdatademo.docx";
+        String srcClassPath_same = "mytemplate/mypicturerenderdatademo.docx";
         //  默认当前工作目录相对路径
-        String destPath = "result/dest_mypicturerenderdatademo.docx";
+        String destPath = "myresult/dest_mypicturerenderdatademo.docx";
 
         File file = new File(srcClassPath_same);
         if (!file.exists()) {
@@ -46,7 +46,7 @@ public class MyPictureRenderDataDemo {
             put("svgImg", "https://img.shields.io/badge/jdk-1.6%2B-orange.svg");
 
             // 图片文件
-            put("localImg", Pictures.ofLocal("mylogo.png").size(120, 120).create());
+            put("localImg", Pictures.ofLocal("mylogo.png").size(120, 120).altMeta("图片不存在").create());
 
             // 图片流
             put("streamImg", Pictures.ofStream(new FileInputStream("mylogo.png"), PictureType.JPEG).size(100, 120).create());
@@ -55,8 +55,8 @@ public class MyPictureRenderDataDemo {
             put("urlImg", Pictures.ofUrl("http://deepoove.com/images/icecream.png").size(100, 100).create());
 
             // java图片，我们可以利用Java生成图表插入到word文档中
-//            File file = new File("D:/images/test.png");
-//            BufferedImage bufferImage = ImageIO.read(file);
+//     File file = new File("D:/images/test.png");
+//     BufferedImage bufferImage = ImageIO.read(file);
 
             try(InputStream is = new FileInputStream("mylogo.png")){
                 BufferedImage bufferImage = ImageIO.read(is);
@@ -69,9 +69,9 @@ public class MyPictureRenderDataDemo {
         }};
 
 
-        //        compile 编译模板
-        //        render 渲染数据
-        //        write 输出到流
+        // compile 编译模板
+        // render 渲染数据
+        // write 输出到流
         XWPFTemplate template = XWPFTemplate.compile(srcClassPath_same).render(data);
 
         template.writeAndClose(new FileOutputStream(destPath));

@@ -46,8 +46,8 @@ public class MyLoopRowTableRenderPolicyDemo {
     public static void testRender() throws IOException {
 
         // 1.输出定义
-        String srcClassPath_same = "template/mypoitl13_looprowtable.docx";
-        String srcClassPath_notsame = "template/mypoitl13_looprowtable_notSameRow.docx";
+        String srcClassPath_same = "mytemplate/mypoitl13_looprowtable.docx";
+        String srcClassPath_notsame = "mytemplate/mypoitl13_looprowtable_notSameRow.docx";
 
         String destPath = "./result/dest_mypoitl13_looprowtable.docx";
         boolean isSameLne = false;
@@ -62,7 +62,7 @@ public class MyLoopRowTableRenderPolicyDemo {
 
         // 默认前缀:[,后缀:]
         // onSameLine,true:使用当前行的占位符
-//        LoopRowTableRenderPolicy hackLoopSameLineTableRenderPolicy = new LoopRowTableRenderPolicy(true);
+// LoopRowTableRenderPolicy hackLoopSameLineTableRenderPolicy = new LoopRowTableRenderPolicy(true);
         LoopRowTableRenderPolicy hackLoopSameLineTableRenderPolicy = new LoopRowTableRenderPolicy(isSameLne);
         Configure config = Configure.builder()
                 // 实体类要有字段,itemWrap.items

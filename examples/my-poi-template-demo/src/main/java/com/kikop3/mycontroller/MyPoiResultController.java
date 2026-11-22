@@ -76,28 +76,28 @@ public class MyPoiResultController {
 //    @GetMapping("testForPreview")
 //    public void testForPreview(HttpServletRequest request, HttpServletResponse response) throws Exception {
 //
-//        XWPFTemplate xwpfTemplate = MyQuickDataModelDemo.testReturnRender();
+// XWPFTemplate xwpfTemplate = MyQuickDataModelDemo.testReturnRender();
 //
 //
-//        // 1. Word(.docx) 正确的 MIME 类型
-//        response.setContentType("application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+// // 1. Word(.docx) 正确的 MIME 类型
+// response.setContentType("application/vnd.openxmlformats-officedocument.wordprocessingml.document");
 //
-//        // 2. inline = 浏览器内预览（关键）
-//        String fileName = "dest_out_template.docx";
-//        String encodedFileName = java.net.URLEncoder.encode(fileName, "UTF-8").replaceAll("\\+", "%20");
-//        response.setHeader("Content-Disposition", "inline; filename*=UTF-8''" + encodedFileName);
+// // 2. inline = 浏览器内预览（关键）
+// String fileName = "dest_out_template.docx";
+// String encodedFileName = java.net.URLEncoder.encode(fileName, "UTF-8").replaceAll("\\+", "%20");
+// response.setHeader("Content-Disposition", "inline; filename*=UTF-8''" + encodedFileName);
 //
-//        // 3. 可选：防止缓存（开发阶段推荐）
-//        response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-//        response.setHeader("Pragma", "no-cache");
-//        response.setDateHeader("Expires", 0);
+// // 3. 可选：防止缓存（开发阶段推荐）
+// response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+// response.setHeader("Pragma", "no-cache");
+// response.setDateHeader("Expires", 0);
 //
-//        // 4.输出流
-//        OutputStream out = response.getOutputStream();
-//        BufferedOutputStream bos = new BufferedOutputStream(out);
-//        xwpfTemplate.write(bos);
-//        bos.flush();
-//        out.flush();
-//        PoitlIOUtils.closeQuietlyMulti(xwpfTemplate, bos, out);
+// // 4.输出流
+// OutputStream out = response.getOutputStream();
+// BufferedOutputStream bos = new BufferedOutputStream(out);
+// xwpfTemplate.write(bos);
+// bos.flush();
+// out.flush();
+// PoitlIOUtils.closeQuietlyMulti(xwpfTemplate, bos, out);
 //    }
 }

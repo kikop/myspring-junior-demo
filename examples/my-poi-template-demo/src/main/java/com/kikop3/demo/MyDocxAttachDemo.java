@@ -34,10 +34,10 @@ public class MyDocxAttachDemo {
         // 1.输出定义
         //  默认当前工作目录相对路径
         //  或者绝对路径 D:/xxx/template/myquickdemo.docx
-        String srcClassPath_same = "template/mydocxattach.docx";
+        String srcClassPath_same = "mytemplate/mydocxattach.docx";
 
         //  默认当前工作目录相对路径
-        String destPath = "result/dest_mydocxattach.docx";
+        String destPath = "myresult/dest_mydocxattach.docx";
 
         File file = new File(srcClassPath_same);
         if (!file.exists()) {
@@ -50,7 +50,7 @@ public class MyDocxAttachDemo {
         subData.add(new AddrModel("Hangzhou,China", "qqqqqqqqqqqq"));
         subData.add(new AddrModel("Shanghai,China", "qqqqqqqqqqqq222"));
 
-        AttachmentRenderData attach = Attachments.ofLocal("template/test.docx",
+        AttachmentRenderData attach = Attachments.ofLocal("mytemplate/test.docx",
                 AttachmentType.DOCX).create();
 
 

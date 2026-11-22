@@ -95,6 +95,12 @@
             <!--            <version>1.2.3</version>-->
         </dependency>
 
+        <!-- 数据模型序列化-->
+        <dependency>
+            <groupId>com.deepoove</groupId>
+            <artifactId>poi-tl-jsonmodel-support</artifactId>
+            <version>1.0.0</version>
+        </dependency>
     </dependencies>
 
 

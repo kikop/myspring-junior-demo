@@ -25,9 +25,9 @@ public class MyTableRenderDataDemo {
         // 1.输出定义
         //  默认当前工作目录相对路径
         //  或者绝对路径 D:/xxx/template/myquickdemo.docx
-        String srcClassPath_same = "template/mytablerenderdatademo.docx";
+        String srcClassPath_same = "mytemplate/mytablerenderdatademo.docx";
         //  默认当前工作目录相对路径
-        String destPath = "result/dest_mytablerenderdatademo.docx";
+        String destPath = "myresult/dest_mytablerenderdatademo.docx";
 
         File file = new File(srcClassPath_same);
         if (!file.exists()) {
@@ -63,9 +63,9 @@ public class MyTableRenderDataDemo {
         }};
 
 
-        //        compile 编译模板
-        //        render 渲染数据
-        //        write 输出到流
+        // compile 编译模板
+        // render 渲染数据
+        // write 输出到流
         XWPFTemplate template = XWPFTemplate.compile(srcClassPath_same).render(data);
 
         template.writeAndClose(new FileOutputStream(destPath));

@@ -1,6 +1,7 @@
 package com.kikop3.demo;
 
 import com.deepoove.poi.XWPFTemplate;
+import com.deepoove.poi.data.HyperlinkTextRenderData;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -23,9 +24,9 @@ public class MyQuickDemo {
         // 1.输出定义
         //  默认当前工作目录相对路径
         //  或者绝对路径 D:/xxx/template/myquickdemo.docx
-        String srcClassPath_same = "template/myquickdemo.docx";
+        String srcClassPath_same = "mytemplate/myquickdemo.docx";
         //  默认当前工作目录相对路径
-        String destPath = "result/dest_myquickdemo2.docx";
+        String destPath = "myresult/dest_myquickdemo.docx";
 
         File file = new File(srcClassPath_same);
         if (!file.exists()) {
@@ -33,11 +34,13 @@ public class MyQuickDemo {
             throw new RuntimeException("模板文件不存在: " + file.getAbsolutePath());
         }
 
-        //        compile 编译模板
-        //        render 渲染数据
-        //        write 输出到流
+        // compile 编译模板
+        // render 渲染数据
+        // write 输出到流
         XWPFTemplate template = XWPFTemplate.compile(srcClassPath_same).render(new HashMap<String, Object>() {{
             put("title", "Hi, poi-tl Word模板引擎");
+//     put("baidu", new HyperlinkTextRenderData("https://www.baidu.com", "https://www.baidu.com"));
+            put("baidu", new HyperlinkTextRenderData("baidu", "http://deepoove.com"));
         }});
 
         template.writeAndClose(new FileOutputStream(destPath));
