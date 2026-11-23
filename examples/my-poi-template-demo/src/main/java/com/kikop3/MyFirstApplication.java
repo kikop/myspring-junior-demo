@@ -16,8 +16,12 @@ public class MyFirstApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        MyLoopRowTableRenderPolicyDemo.testRender();
 
-        //MyLoopRowTableRenderPolicyDemo.testRender();
+        // docx模板（同一行）
+        MyLoopRowTableDefaultRenderPolicyDemo.testRender_same(true);
+
+
         // MyQuickDemo.testRender();
         //MyQuickDataModelDemo.testRender();
         // MyTextRenderDataDemo.testRender();
@@ -26,7 +30,7 @@ public class MyFirstApplication implements CommandLineRunner {
         // MySpringExpLangDemo.testRender();
         // MyDocxAttachDemo.testRender();
         // MyMarkdownForDocxDemo.testRender();
-        MyNoTemplateRenderDataDemo.testRender();
+//        MyNoTemplateRenderDataDemo.testRender();
 
     }
 }

@@ -46,8 +46,15 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
+<!--        3.spring-expression-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-expression</artifactId>
@@ -60,13 +67,9 @@
             <version>1.0.3</version>
         </dependency>
 
-        <!-- 3.lombok-->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <scope>provided</scope>
-        </dependency>
 
+
+<!--        4.aspose-words-->
         <!--        JDK 17 用 jdk17；JDK 8 用 jdk8；JDK 11 用 jdk11。-->
         <!--        则阿里云会把 com.aspose:aspose-words 拦截掉，报：-->
         <dependency>
@@ -77,6 +80,7 @@
         </dependency>
 
 
+        <!-- slf4j + logback 桥接 -->
         <!--        poi-tl使用slf4j作为日志门面 -->
         <!--        版本对应关系:-->
         <!--        poi-tl v1.10.6内置slf4j-api v2.0.17-->
@@ -84,16 +88,37 @@
         <!--        springboot版本自动寻找logback 1.5.18(slf4j-api v2.0.17)-->
 
         <!--        logback 删掉 version，让 Spring Boot 管 v1.5.18-->
+        <!--        <dependency>-->
+        <!--            <groupId>ch.qos.logback</groupId>-->
+        <!--            <artifactId>logback-core</artifactId>-->
+        <!--            &lt;!&ndash;            <version>1.2.3</version>&ndash;&gt;-->
+        <!--        </dependency>-->
+
+        <!--        <dependency>-->
+        <!--            <groupId>ch.qos.logback</groupId>-->
+        <!--            <artifactId>logback-classic</artifactId>-->
+        <!--            &lt;!&ndash;            <version>1.2.3</version>&ndash;&gt;-->
+        <!--        </dependency>-->
+
+        <!-- slf4j + log4j2 桥接 -->
         <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-core</artifactId>
-            <!--            <version>1.2.3</version>-->
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-log4j2</artifactId>
         </dependency>
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <!--            <version>1.2.3</version>-->
-        </dependency>
+
+<!--        log4j-slf4j-impl-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.apache.logging.log4j</groupId>-->
+        <!--            <artifactId>log4j-slf4j-impl</artifactId>-->
+        <!--            <version>2.23.1</version>-->
+        <!--        </dependency>-->
+
+                <!-- log4j2 核心 -->
+        <!--        <dependency>-->
+        <!--            <groupId>org.apache.logging.log4j</groupId>-->
+        <!--            <artifactId>log4j-core</artifactId>-->
+        <!--            <version>2.23.1</version>-->
+        <!--        </dependency>-->
 
         <!-- 数据模型序列化-->
         <dependency>
@@ -101,6 +126,14 @@
             <artifactId>poi-tl-jsonmodel-support</artifactId>
             <version>1.0.0</version>
         </dependency>
+
+        <!-- lombok-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
     </dependencies>
 
 

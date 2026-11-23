@@ -39,7 +39,7 @@ public class MyLoopRowTableRenderPolicyDemo {
     }
 
     /**
-     * 测试
+     * 测试OK
      *
      * @throws IOException
      */
@@ -47,9 +47,9 @@ public class MyLoopRowTableRenderPolicyDemo {
 
         // 1.输出定义
         String srcClassPath_same = "mytemplate/mypoitl13_looprowtable.docx";
-        String srcClassPath_notsame = "mytemplate/mypoitl13_looprowtable_notSameRow.docx";
 
-        String destPath = "./result/dest_mypoitl13_looprowtable.docx";
+        String srcClassPath_notsame = "template/mypoitl13_looprowtable_notsameRow.docx";
+        String destPath_notsame = "./myresult/dest_mypoitl13_looprowtable_notsameRow.docx";
         boolean isSameLne = false;
 
         // 2. 组装模板数据（key 对应模板中的 [[myUserInfoList.xxx]]）
@@ -61,15 +61,15 @@ public class MyLoopRowTableRenderPolicyDemo {
         ClassPathResource tpl = new ClassPathResource(isSameLne ? srcClassPath_same : srcClassPath_notsame);
 
         // 默认前缀:[,后缀:]
-        // onSameLine,true:使用当前行的占位符
-// LoopRowTableRenderPolicy hackLoopSameLineTableRenderPolicy = new LoopRowTableRenderPolicy(true);
+        // onSameLine,true:使用当前行的占位符.默认:false
+        // LoopRowTableRenderPolicy hackLoopSameLineTableRenderPolicy = new LoopRowTableRenderPolicy(true);
         LoopRowTableRenderPolicy hackLoopSameLineTableRenderPolicy = new LoopRowTableRenderPolicy(isSameLne);
         Configure config = Configure.builder()
                 // 实体类要有字段,itemWrap.items
                 .bind("myUserInfoList", hackLoopSameLineTableRenderPolicy).build();
-        XWPFTemplate template = XWPFTemplate.compile(tpl.getInputStream(), config)
-                .render(itemWrap);
+        XWPFTemplate template = XWPFTemplate.compile(tpl.getInputStream(), config).render(itemWrap);
+
         // 4.关闭流
-        template.writeToFile(destPath);
+        template.writeToFile(destPath_notsame);
     }
 }

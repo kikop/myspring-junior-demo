@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <!-- 控制台输出 -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="【myspring-junior-demo】%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"/>
+        </Console>
+
+        <!-- 文件输出（可选） -->
+        <File name="File" fileName="logs/poi-tl-log4j2.log">
+<!--            <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>-->
+            <PatternLayout pattern="【myspring-junior-demo】%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"/>
+        </File>
+    </Appenders>
+
+    <Loggers>
+        <!-- poi-tl 专用 logger，可单独控制级别 -->
+        <!-- poi-tl logger：只把 ERROR 给文件，INFO 给控制台 -->
+        <Logger name="com.deepoove.poi" level="DEBUG" additivity="false">
+            <AppenderRef ref="Console" level="INFO"/>
+            <AppenderRef ref="File" level="ERROR"/>
+        </Logger>
+
+        <!-- 根 logger -->
+        <Root level="INFO">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>
